@@ -1,9 +1,15 @@
 import React from "react";
-import BrokenCloudsAnimated from "../public/partly-cloudy-day-animated.svg";
-import OvercastCloudsAnimated from "../public/overcast-day-animated.svg";
-import { Box, Stack, styled, Typography } from "@mui/material";
+import { Box, Stack, styled, SvgIcon, Typography } from "@mui/material";
 import Wrapper from "./Wrapper";
 import { Air, Opacity, Thermostat } from "@mui/icons-material";
+import BrokenClouds from "../public/partly-cloudy.svg";
+import OvercastClouds from "../public/overcast.svg";
+import HeavyRain from "../public/09d.svg";
+import Windy from "../public/01d.svg";
+import Sunny from "../public/01d.svg";
+import Drizzle from "../public/13d.svg";
+import WindyRain from "../public/10d.svg";
+import Thunder from "../public/11d.svg";
 
 const Div1 = styled("div")(({ theme }) => ({
   marginTop: theme.spacing(4),
@@ -30,6 +36,19 @@ const Div2 = styled(Stack)(({ theme }) => ({
   borderRadius: "1rem",
 }));
 
+const StyledSvgIcon = styled(SvgIcon)(({ theme }) => ({
+  width: "20rem",
+  height: "20rem",
+  [theme.breakpoints.up("sm")]: {
+    width: "26rem",
+    height: "26rem",
+  },
+  [theme.breakpoints.up("md")]: {
+    width: "36rem",
+    height: "36rem",
+  },
+}));
+
 const MainWeather = ({ name, weather, temp, humidity, wind }) => {
   return (
     <Wrapper>
@@ -38,9 +57,39 @@ const MainWeather = ({ name, weather, temp, humidity, wind }) => {
           {name}
         </Typography>
         {weather === "broken clouds" ? (
-          <BrokenCloudsAnimated style={{ width: "18rem", height: "18rem" }} />
+          <StyledSvgIcon>
+            <BrokenClouds className="w-40 sm:w-64 h-40 sm:h-64" />
+          </StyledSvgIcon>
+        ) : weather === "overcast clouds" ? (
+          <StyledSvgIcon>
+            <OvercastClouds className="w-40 h-40 sm:w-64 sm:h-64" />
+          </StyledSvgIcon>
+        ) : weather === "heavy rain" ? (
+          <StyledSvgIcon>
+            <HeavyRain className="w-40 h-40 sm:w-64 sm:h-64" />
+          </StyledSvgIcon>
+        ) : weather === "windy" ? (
+          <StyledSvgIcon>
+            <Windy className="w-40 h-40 sm:w-64 sm:h-64" />
+          </StyledSvgIcon>
+        ) : weather === "sunny" ? (
+          <StyledSvgIcon>
+            <Sunny className="w-40 h-40 sm:w-64 sm:h-64" />
+          </StyledSvgIcon>
+        ) : weather === "drizzle" ? (
+          <StyledSvgIcon>
+            <Drizzle className="w-40 h-40 sm:w-64 sm:h-64" />
+          </StyledSvgIcon>
+        ) : weather === "windy rain" ? (
+          <StyledSvgIcon>
+            <WindyRain className="w-40 h-40 sm:w-64 sm:h-64" />
+          </StyledSvgIcon>
+        ) : weather === "thunder" ? (
+          <StyledSvgIcon>
+            <Thunder className="w-40 h-40 sm:w-64 sm:h-64" />
+          </StyledSvgIcon>
         ) : (
-          <OvercastCloudsAnimated style={{ width: "18rem", height: "18rem" }} />
+          ""
         )}
         <Typography variant="h6" fontWeight={700} textTransform="capitalize">
           {weather}

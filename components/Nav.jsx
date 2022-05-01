@@ -34,7 +34,7 @@ const Nav = () => {
       <Div1 sx={{ marginTop: "1rem" }}>
         <Stack className="scrollbar-hide" direction="row" spacing={4} sx={{ overflow: "scroll", paddingRight: "2rem", paddingLeft: "0.5rem" }}>
           {daysData.map((item) => (
-            <Chip label={item.title} onClick={handleChipClick} />
+            <Chip key={item.id} label={item.title} onClick={handleChipClick} />
           ))}
         </Stack>
         <StyledBox />

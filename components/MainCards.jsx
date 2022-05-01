@@ -26,7 +26,7 @@ const MainCards = () => {
   return (
     <Wrapper>
       <StyledDiv0>
-        {data.map((item) => (
+        {data.slice(0, 2).map((item) => (
           <Link key={item.id} href={`/weather/${item.name}`}>
             <StyledDiv>
               <WeatherCard

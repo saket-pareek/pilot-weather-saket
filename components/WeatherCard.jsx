@@ -1,6 +1,7 @@
 import * as React from "react";
-import BrokenCloudsAnimated from "../public/partly-cloudy-day-Animated.svg";
-import OvercastCloudsAnimated from "../public/overcast-day-Animated.svg";
+import BrokenClouds from "../public/partly-cloudy.svg";
+import OvercastClouds from "../public/overcast.svg";
+
 import { Stack, styled, Typography, Box, SvgIcon } from "@mui/material";
 import Wrapper from "./Wrapper";
 
@@ -115,11 +116,11 @@ const WeatherCard = ({ weather, name, temp, country, icon }) => {
       <Content>
         {weather === "broken clouds" ? (
           <StyledSvgIcon>
-            <BrokenCloudsAnimated className="w-40 sm:w-64 h-40 sm:h-64" />
+            <BrokenClouds />
           </StyledSvgIcon>
         ) : (
           <StyledSvgIcon>
-            <OvercastCloudsAnimated className="w-40 h-40 sm:w-64 sm:h-64" />
+            <OvercastClouds />
           </StyledSvgIcon>
         )}
         <TextContent>

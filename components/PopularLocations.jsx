@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 import Link from "next/link";
 import PopularWeatherCard from "./PopularWeatherCard";
 import ArrowGroup from "../components/ArrowGroup";
-import { carouselData } from "../lib/data";
+import { data } from "../lib/data";
 import Wrapper from "./Wrapper";
 import { styled, Typography } from "@mui/material";
 
@@ -76,7 +76,7 @@ const PopularLocations = () => {
           </Typography>
         </Div2>
         <Div3 ref={ref} className="scrollbar-hide">
-          {carouselData.map((item) => (
+          {data.map((item) => (
             <Link key={item.id} href={`/weather/${item.name}`}>
               <Div4>
                 <PopularWeatherCard name={item.name} temp={item.main.temp} weather={item.weather[0].description} country={item.sys.country} />
